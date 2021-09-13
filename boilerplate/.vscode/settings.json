@@ -6,5 +6,4 @@
     "editor.codeActionsOnsave": {
         "source.fixAll.eslint": true
     }
-
 }
