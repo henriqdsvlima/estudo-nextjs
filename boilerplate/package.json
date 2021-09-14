@@ -7,9 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "npm run  test --watch"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.0",
     "@types/node": "^16.9.1",
     "@types/react": "^17.0.20",
     "eslint-plugin-react-hooks": "^4.2.0",
