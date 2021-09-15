@@ -4,16 +4,16 @@ if (!self.define) {
             let s = Promise.resolve()
             return (
                 n[e] ||
-                    // eslint-disable-next-line no-async-promise-executor
-                    (s = new Promise(async (s) => {
-                        if ('document' in self) {
-                            const n = document.createElement('script')
-                            ;(n.src = e),
-                                document.head.appendChild(n),
-                                (n.onload = s)
-                            // eslint-disable-next-line no-undef
-                        } else importScripts(e), s()
-                    })),
+                // eslint-disable-next-line no-async-promise-executor
+                (s = new Promise(async (s) => {
+                    if ('document' in self) {
+                        const n = document.createElement('script');
+                        (n.src = e),
+                        document.head.appendChild(n),
+                            (n.onload = s)
+                        // eslint-disable-next-line no-undef
+                    } else importScripts(e), s()
+                })),
                 s.then(() => {
                     if (!n[e])
                         throw new Error(
@@ -62,8 +62,7 @@ define('./sw.js', ['./workbox-4a677df8'], function (e) {
         self.skipWaiting(),
         e.clientsClaim(),
         e.precacheAndRoute(
-            [
-                {
+            [{
                     url: '/_next/static/6zDcVnhiGAnLVlScb6BJU/_buildManifest.js',
                     revision: '6zDcVnhiGAnLVlScb6BJU'
                 },
@@ -131,8 +130,7 @@ define('./sw.js', ['./workbox-4a677df8'], function (e) {
                     url: '/vercel.svg',
                     revision: '4b4f1876502eb6721764637fe5c41702'
                 }
-            ],
-            {
+            ], {
                 ignoreURLParametersMatching: []
             }
         ),
@@ -141,23 +139,21 @@ define('./sw.js', ['./workbox-4a677df8'], function (e) {
             '/',
             new e.NetworkFirst({
                 cacheName: 'start-url',
-                plugins: [
-                    {
-                        cacheWillUpdate: async ({
+                plugins: [{
+                    cacheWillUpdate: async ({
                             request: e,
                             response: s,
                             event: n,
                             state: i
                         }) =>
-                            s && 'opaqueredirect' === s.type
-                                ? new Response(s.body, {
-                                      status: 200,
-                                      statusText: 'OK',
-                                      headers: s.headers
-                                  })
-                                : s
-                    }
-                ]
+                        s && 'opaqueredirect' === s.type ?
+                        new Response(s.body, {
+                            status: 200,
+                            statusText: 'OK',
+                            headers: s.headers
+                        }) :
+                        s
+                }]
             }),
             'GET'
         ),
@@ -307,7 +303,9 @@ define('./sw.js', ['./workbox-4a677df8'], function (e) {
             'GET'
         ),
         e.registerRoute(
-            ({ url: e }) => {
+            ({
+                url: e
+            }) => {
                 if (!(self.origin === e.origin)) return !1
                 const s = e.pathname
                 return !s.startsWith('/api/auth/') && !!s.startsWith('/api/')
@@ -325,7 +323,9 @@ define('./sw.js', ['./workbox-4a677df8'], function (e) {
             'GET'
         ),
         e.registerRoute(
-            ({ url: e }) => {
+            ({
+                url: e
+            }) => {
                 if (!(self.origin === e.origin)) return !1
                 return !e.pathname.startsWith('/api/')
             },
@@ -342,7 +342,9 @@ define('./sw.js', ['./workbox-4a677df8'], function (e) {
             'GET'
         ),
         e.registerRoute(
-            ({ url: e }) => !(self.origin === e.origin),
+            ({
+                url: e
+            }) => !(self.origin === e.origin),
             new e.NetworkFirst({
                 cacheName: 'cross-origin',
                 networkTimeoutSeconds: 10,
