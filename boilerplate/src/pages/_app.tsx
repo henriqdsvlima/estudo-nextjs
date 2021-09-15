@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import GlobalStyles from 'styles/global'
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function App({ Component, pageProps }: AppProps) {
     return (
         <>
